@@ -11,25 +11,23 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "make test",
-    "coveralls": "coveralls < ./coverage/lcov.info",
-    "update-dependencies": "npm-check-updates -ua && npm install"
+    "test": "make test"
   },
   "repository": "https://github.com/lazywithclass/winston-cloudwatch",
   "author": "me@lazywithclass.com",
   "license": "MIT",
   "typings": "typescript/winston-cloudwatch.d.ts",
   "peerDependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.0.0",
-    "winston": "^3.0.0"
+    "@aws-sdk/client-cloudwatch-logs": "^3",
+    "winston": "^3"
   },
   "resolutions": {
     "vm2": "^3.9.17"
   },
   "dependencies": {
-    "async": "^3.1.0",
-    "chalk": "^4.0.0",
-    "fast-safe-stringify": "^2.0.7",
+    "async": "^3.2.4",
+    "chalk": "^4.1.2",
+    "fast-safe-stringify": "^2.1.1",
     "lodash.assign": "^4.2.0",
     "lodash.find": "^4.6.0",
     "lodash.isempty": "^4.4.0",
@@ -37,16 +35,14 @@
     "proxy-agent": "^5.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.0.0",
-    "@types/node": "13.11.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.315.0",
+    "@types/node": "^16",
     "@types/winston": "2.4.4",
     "clarify": "^2.1.0",
-    "coveralls": "^3.0.7",
     "istanbul": "^0.4.5",
-    "mocha": "^9.1.3",
+    "mocha": "^10.2.0",
     "mockery": "^2.1.0",
-    "npm-check-updates": "^4.1.1",
     "should": "^13.2.3",
-    "sinon": "^11.1.2"
+    "sinon": "^15.0.3"
   }
 }
