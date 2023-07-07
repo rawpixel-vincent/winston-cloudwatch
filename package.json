@@ -22,7 +22,7 @@
     "winston": "^3"
   },
   "resolutions": {
-    "vm2": "^3.9.17"
+    "vm2": "^3.9.19"
   },
   "dependencies": {
     "async": "^3.2.4",
@@ -35,7 +35,7 @@
     "proxy-agent": "^5.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.315.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.368.0",
     "@types/node": "^16",
     "@types/winston": "2.4.4",
     "clarify": "^2.1.0",
@@ -43,6 +43,6 @@
     "mocha": "^10.2.0",
     "mockery": "^2.1.0",
     "should": "^13.2.3",
-    "sinon": "^15.0.3"
+    "sinon": "^15.2.0"
   }
 }
