@@ -120,7 +120,7 @@ describe('cloudwatch-integration', function() {
     });
 
     it('puts log events', function(done) {
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function() {
         aws.putLogEvents.calledOnce.should.equal(true);
@@ -134,7 +134,7 @@ describe('cloudwatch-integration', function() {
 
     it('adds token to the payload only if it exists', function(done) {
       lib.getToken.yields(null);
-      lib.upload(aws, 'group', 'stream', Array(20), {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), {
         ensureGroupPresent: true
       }, 0, function() {
         aws.putLogEvents.calledOnce.should.equal(true);
@@ -157,7 +157,7 @@ describe('cloudwatch-integration', function() {
 
     it('errors if getting the token errors', function(done) {
       lib.getToken.yields('err');
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function(err) {
         err.should.equal('err');
@@ -167,7 +167,7 @@ describe('cloudwatch-integration', function() {
 
     it('errors if putting log events errors', function(done) {
       aws.putLogEvents.yields('err');
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function(err) {
         err.should.equal('err');
@@ -177,7 +177,7 @@ describe('cloudwatch-integration', function() {
 
     it('gets another token if InvalidSequenceTokenException', function(done) {
       aws.putLogEvents.yields({ name: 'InvalidSequenceTokenException' });
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function(err) {
         lib.submitWithAnotherToken.calledOnce.should.equal(true);
@@ -187,7 +187,7 @@ describe('cloudwatch-integration', function() {
 
     it('gets another token if ResourceNotFoundException', function(done) {
       aws.putLogEvents.yields({ name: 'InvalidSequenceTokenException' });
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function(err) {
         lib.submitWithAnotherToken.calledOnce.should.equal(true);
@@ -198,7 +198,7 @@ describe('cloudwatch-integration', function() {
     it('nextToken is saved when available', function(done) {
       var nextSequenceToken = 'abc123';
       aws.putLogEvents.yields(null, { nextSequenceToken: nextSequenceToken });
-      lib.upload(aws, 'group', 'stream', Array(20), 0, {
+      lib.upload(aws, 'group', 'stream', Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {
         ensureGroupPresent: true
       }, function() {
         sinon.assert.match(lib._nextToken, { 'group:stream': nextSequenceToken });
@@ -537,7 +537,7 @@ describe('cloudwatch-integration', function() {
       var stream = 'stream';
       aws.putLogEvents = sinon.stub().yields(null, { nextSequenceToken: nextSequenceToken });
 
-      lib.upload(aws, group, stream, Array(20), 0, {}, function() {
+      lib.upload(aws, group, stream, Array(20).fill('').map(d=>({ message : "test message", timestamp : new Date().toISOString()})), 0, {}, function() {
         lib._nextToken.should.deepEqual({ 'group:stream': nextSequenceToken });
         lib.clearSequenceToken(group, stream);
         lib._nextToken.should.deepEqual({});
