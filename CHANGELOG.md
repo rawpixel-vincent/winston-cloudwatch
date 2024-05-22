@@ -1,3 +1,13 @@
+### 6.3.0
+
+Fix memory leaks in cloudwatch-integration.
+
+https://github.com/lazywithclass/winston-cloudwatch/pull/214
+
+### 6.2.0
+
+Remove proxy-agent
+
 ### 6.1.1
 
 Remove awscli that has been accidentally added to tests
