@@ -22,7 +22,7 @@
     "winston": "^3"
   },
   "dependencies": {
-    "async": "^3.2.5",
+    "async": "^3.2.6",
     "chalk": "^4.1.2",
     "fast-safe-stringify": "^2.1.1",
     "lodash.assign": "^4.2.0",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.577.0",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/winston": "2.4.4",
     "clarify": "^2.1.0",
     "istanbul": "^0.4.5",
