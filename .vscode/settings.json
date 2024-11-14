@@ -1,5 +1,8 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
+  "prettier.trailingComma": "es5",
+  "prettier.arrowParens": "always",
+  "prettier.bracketSameLine": false,
   "yaml.format.printWidth": 80
 }

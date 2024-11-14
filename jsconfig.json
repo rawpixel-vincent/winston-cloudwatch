@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "allowJs": true,
+    "module": "commonjs",
+    "checkJs": true,
+    "lib": ["ES7"],
+    "moduleResolution": "node",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["lib/*.js", "typescript/*.d.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
